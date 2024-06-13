@@ -1,0 +1,37 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+
+/*Start Global Rules*/
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Cairo", sans-serif;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+.container {
+  padding-left: $screen_padding;
+  padding-right: $screen_padding;
+  margin-left: auto;
+  margin-right: auto;
+  @include break_point("small") {
+    width: 750px;
+  }
+  @include break_point("medium") {
+    width: 970px;
+  }
+  @include break_point("large") {
+    width: 1170px;
+  }
+}
+/*End Global Rules*/

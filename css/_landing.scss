@@ -1,0 +1,94 @@
+@use "./mixins" as *;
+@use "./variables" as *;
+/* Start Landing */
+.landing {
+  position: relative;
+  &::before {
+    content: "";
+    background-color: #ececec;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: -40px;
+    left: 0;
+    z-index: -1;
+    transform: skewY(-6deg);
+    transform-origin: top left;
+  }
+  @include center(".container") {
+    min-height: calc(100vh - $header_height);
+    padding-bottom: 120px;
+    .text {
+      flex: 1;
+      h1 {
+        @include text("heading", $font_size * 2) {
+          letter-spacing: -2px;
+        }
+      }
+      p {
+        @include text("normal", $font_size * 1.15, #666) {
+          max-width: 500px;
+        }
+      }
+    }
+    .image {
+      img {
+        width: 600px;
+        max-width: 100%;
+        animation: up-down 5s linear 0s infinite;
+        position: relative;
+      }
+    }
+    @media (max-width: 991px) {
+      .image {
+        display: none;
+      }
+      .text {
+        text-align: center;
+        p {
+          margin: 5px auto;
+        }
+      }
+    }
+  }
+  .go-down {
+    color: $main_color;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: $main_transition;
+    i {
+      animation: bouncing 1.5s infinite;
+    }
+    &:hover {
+      color: $alt_main_color;
+    }
+  }
+}
+@keyframes up-down {
+  0% {
+    top: 0px;
+  }
+  50% {
+    top: -50px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+@keyframes bouncing {
+  0%,
+  10%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40%,
+  60% {
+    transform: translateY(-15px);
+  }
+}
+/* End Landing */
