@@ -1,0 +1,98 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+/*Start Team*/
+.team {
+  padding-top: $section_gap;
+  padding-bottom: $section_gap;
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: $content_gap;
+    .box {
+      padding-top: $section_gap * 0.6;
+      padding-bottom: $content_gap;
+      position: relative;
+      .data {
+        display: flex;
+        align-items: center;
+        img {
+          width: calc(100% - 60px);
+          border-radius: 10px;
+          transition: filter $main_transition;
+        }
+        .social {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: $content_gap * 0.7;
+          flex: 1;
+          @include center("a") {
+            color: $p_color;
+            width: 100%;
+            height: 30px;
+            transition: color $main_transition;
+            &:hover {
+              color: $main_color;
+            }
+          }
+        }
+      }
+      .info {
+        padding-left: 23%;
+        h3 {
+          @include text("heading", $font_size * 1.1, $main_color) {
+            margin-top: $text_gap * 2;
+            margin-bottom: $text_gap;
+          }
+          transition: color $main_transition;
+        }
+        p {
+          margin: 0;
+          transition: color $main_transition;
+        }
+      }
+      &::before,
+      &::after {
+        content: "";
+        background-color: #f3f3f3;
+        border-radius: 10px;
+        width: 83%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: -2;
+      }
+      &::after {
+        background-color: rgb(0 0 0/ 5%);
+        width: 0;
+        z-index: -2;
+        transition: width $main_transition;
+      }
+      &:hover {
+        &::after {
+          width: 83%;
+        }
+        .data {
+          img {
+            filter: grayscale(100%);
+          }
+        }
+        .info {
+          h3,
+          p {
+            color: $p_color;
+          }
+        }
+      }
+    }
+    @include break_point("mobile") {
+      .box {
+        margin-left: auto;
+        margin-right: auto;
+        width: 300px;
+      }
+    }
+  }
+}
+/*End Team*/

@@ -644,4 +644,237 @@ header .container .nav > li:hover .mega-menu {
   width: 100%;
 }
 
-/*End Features*//*# sourceMappingURL=main.css.map */
+/*End Features*/
+/*Start Testimonials*/
+.testimonials {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-color: #ececec;
+}
+.testimonials .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 40.5px;
+}
+.testimonials .container .box {
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
+  padding: 20px;
+  position: relative;
+}
+.testimonials .container .box img {
+  width: 100px;
+  height: 100px;
+  border: 10px solid #ececec;
+  border-radius: 50%;
+  position: absolute;
+  top: -50px;
+  right: -10px;
+}
+.testimonials .container .box h3 {
+  text-transform: capitalize;
+  margin: 0 0 10px;
+}
+.testimonials .container .box span {
+  display: block;
+  color: #777;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+}
+.testimonials .container .box .rate .fa-solid {
+  color: #ffc107;
+}
+.testimonials .container .box p {
+  color: #777;
+  font-weight: normal;
+  line-height: 1.5;
+  margin: 0;
+  margin-top: 10px;
+}
+/*End Testimonials*/
+/*Start Team*/
+.team {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.team .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+.team .container .box {
+  padding-top: 60px;
+  padding-bottom: 30px;
+  position: relative;
+}
+.team .container .box .data {
+  display: flex;
+  align-items: center;
+}
+.team .container .box .data img {
+  width: calc(100% - 60px);
+  border-radius: 10px;
+  transition: filter 0.3s;
+}
+.team .container .box .data .social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 21px;
+  flex: 1;
+}
+.team .container .box .data .social a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #777;
+  width: 100%;
+  height: 30px;
+  transition: color 0.3s;
+}
+.team .container .box .data .social a:hover {
+  color: #2196f3;
+}
+.team .container .box .info {
+  padding-left: 23%;
+}
+.team .container .box .info h3 {
+  color: #2196f3;
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: capitalize;
+  margin: 0;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  transition: color 0.3s;
+}
+.team .container .box .info p {
+  margin: 0;
+  transition: color 0.3s;
+}
+.team .container .box::before, .team .container .box::after {
+  content: "";
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  width: 83%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -2;
+}
+.team .container .box::after {
+  background-color: rgba(0, 0, 0, 0.05);
+  width: 0;
+  z-index: -2;
+  transition: width 0.3s;
+}
+.team .container .box:hover::after {
+  width: 83%;
+}
+.team .container .box:hover .data img {
+  filter: grayscale(100%);
+}
+.team .container .box:hover .info h3,
+.team .container .box:hover .info p {
+  color: #777;
+}
+@media (max-width: 767px) {
+  .team .container .box {
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+  }
+}
+
+/*End Team*/
+/*Start Services*/
+.services {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-color: #ececec;
+}
+.services .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 40.5px;
+}
+.services .container .box {
+  background-color: white;
+  box-shadow: 0px 12px 20px 0px rgba(0, 0, 0, 0.13), 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+  text-align: center;
+  position: relative;
+  counter-increment: num;
+  transition: transform 0.3s;
+}
+.services .container .box i {
+  display: block;
+  color: #d5d5d5;
+  margin: 30px 0 22.5px;
+}
+.services .container .box h3 {
+  color: #2196f3;
+  font-size: 25px;
+  font-weight: bold;
+  text-transform: capitalize;
+  margin: 0;
+  margin-bottom: 40.5px;
+}
+.services .container .box .info {
+  padding: 15px;
+  position: relative;
+  background-color: #f9f9f9;
+  text-align: right;
+  overflow: hidden;
+}
+.services .container .box .info a {
+  text-transform: capitalize;
+  color: #2196f3;
+  display: block;
+}
+.services .container .box .info::before {
+  content: "0" counter(num);
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  background-color: #2196f3;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 80px;
+  height: 100%;
+  padding-right: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.services .container .box .info::after {
+  content: "";
+  background-color: #d5d5d5;
+  position: absolute;
+  left: 80px;
+  top: 0;
+  width: 50px;
+  height: 105%;
+  transform: skew(-30deg);
+}
+.services .container .box::before {
+  content: "";
+  width: 0%;
+  height: 3px;
+  background-color: #2196f3;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width 0.3s;
+}
+.services .container .box:hover {
+  transform: translateY(-15px);
+}
+.services .container .box:hover::before {
+  width: 100%;
+}
+
+/*End Services*//*# sourceMappingURL=main.css.map */
