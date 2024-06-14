@@ -1,0 +1,73 @@
+@use "./mixins" as *;
+@use "./variables" as *;
+/*Start work steps*/
+.work-steps {
+  padding-top: $section_gap;
+  padding-bottom: $section_gap;
+  background-color: $section_background;
+  .container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: $section_gap;
+    .image {
+      max-width: 450px;
+      img {
+        width: 100%;
+      }
+    }
+    .info {
+      flex: 1;
+      display: flex;
+      flex-flow: column;
+      gap: $content_gap;
+      .box {
+        background-color: #f6f5f5;
+        border: 2px solid white;
+        border-radius: 6px;
+        padding: $screen_padding * 1.5;
+        display: flex;
+        align-items: center;
+        gap: $content_gap;
+        position: relative;
+        .text {
+          z-index: 2;
+          h3 {
+            @include text("heading", $font_size * 1.1, null);
+            margin: 0 0 $text_gap;
+          }
+          p {
+            @include text("normal", $font_size * 0.9, null);
+          }
+        }
+        img {
+          z-index: 2;
+          width: 64px;
+        }
+        @include break_point("mobile") {
+          flex-direction: column;
+          text-align: center;
+        }
+        &::before {
+          content: "";
+          background-color: #ededed;
+          width: 0;
+          height: 0;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          transition: width $main_transition, height $main_transition;
+        }
+        &:hover {
+          &::before {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+/*End work steps*/

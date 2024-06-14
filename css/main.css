@@ -877,4 +877,137 @@ header .container .nav > li:hover .mega-menu {
   width: 100%;
 }
 
-/*End Services*//*# sourceMappingURL=main.css.map */
+/*End Services*/
+/*Start Skills*/
+.our-skills {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.our-skills .container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 30px;
+}
+.our-skills .container .image {
+  max-width: 450px;
+}
+.our-skills .container .image img {
+  display: flex;
+  max-width: 100%;
+}
+.our-skills .container .skills {
+  min-width: 300px;
+  flex: 1;
+}
+.our-skills .container .skills .skill .progress {
+  background-color: #eee;
+  width: 100%;
+  height: 30px;
+  position: relative;
+}
+.our-skills .container .skills .skill .progress span {
+  height: 100%;
+  display: block;
+  background-color: #2196f3;
+  position: relative;
+}
+.our-skills .container .skills .skill .progress span::before {
+  content: attr(data-progress);
+  font-size: 14px;
+  color: #2196f3;
+  border: 1px solid #ccc;
+  border-bottom-color: #2196f3;
+  border-bottom-width: 2px;
+  font-weight: bold;
+  padding: 4px 7px;
+  border-radius: 4px;
+  text-align: center;
+  position: absolute;
+  right: -20px;
+  top: -35px;
+}
+
+/*End Skills*/
+/*Start work steps*/
+.work-steps {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-color: #ececec;
+}
+.work-steps .container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  gap: 100px;
+}
+.work-steps .container .image {
+  max-width: 450px;
+}
+.work-steps .container .image img {
+  width: 100%;
+}
+.work-steps .container .info {
+  flex: 1;
+  display: flex;
+  flex-flow: column;
+  gap: 30px;
+}
+.work-steps .container .info .box {
+  background-color: #f6f5f5;
+  border: 2px solid white;
+  border-radius: 6px;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  position: relative;
+}
+.work-steps .container .info .box .text {
+  z-index: 2;
+}
+.work-steps .container .info .box .text h3 {
+  color: black;
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: capitalize;
+  margin: 0;
+  margin-bottom: 10px;
+  margin: 0 0 10px;
+}
+.work-steps .container .info .box .text p {
+  color: #777;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 1.5;
+  margin: 0;
+}
+.work-steps .container .info .box img {
+  z-index: 2;
+  width: 64px;
+}
+@media (max-width: 767px) {
+  .work-steps .container .info .box {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+.work-steps .container .info .box::before {
+  content: "";
+  background-color: #ededed;
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s;
+}
+.work-steps .container .info .box:hover::before {
+  width: 100%;
+  height: 100%;
+}
+
+/*End work steps*//*# sourceMappingURL=main.css.map */
