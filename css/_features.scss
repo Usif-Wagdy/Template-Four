@@ -1,0 +1,102 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+/*Start Features*/
+.features {
+  padding-top: $section_gap;
+  padding-bottom: $section_gap;
+  .container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: $content_gap;
+    .box {
+      max-width: 355px;
+      text-align: center;
+      border: 1px solid #ccc;
+      .image {
+        position: relative;
+        overflow: hidden;
+        img {
+          max-width: 100%;
+        }
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: 1px;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          border-style: solid;
+          border-color: transparent transparent white transparent;
+          border-width: 0 0 170px 500px;
+          transition: border-width $main_transition;
+        }
+      }
+      h2 {
+        @include text("heading", $font_size * 2);
+        width: fit-content;
+        margin: 0 auto;
+        position: relative;
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -$content_gap * 0.7;
+          left: 50%;
+          transform: translateX(-50%);
+          width: calc(100% - $content_gap);
+          height: 5px;
+        }
+      }
+      p {
+        @include text("normal", $font_size, $p_color) {
+          margin: $content_gap 0;
+          padding: 25px;
+          line-height: 1.8;
+        }
+      }
+      a {
+        @include text("heading", $font_size * 1.1);
+        display: block;
+        padding: 10px 30px;
+        width: fit-content;
+        margin: 0 auto $content_gap;
+        border: 3px solid transparent;
+        border-radius: 6px;
+        transition: color $main_transition;
+        position: relative;
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 0%;
+          height: 100%;
+          z-index: -1;
+          transition: width $main_transition;
+        }
+      }
+      @include features-overlay(rgb(244 64 54), ".quality");
+      @include features-overlay(rgb(0 150 136), ".time");
+      @include features-overlay(rgb(3 169 244), ".passion");
+      &:hover {
+        .image::after {
+          border-width: 0 500px 170px 0;
+        }
+        a {
+          color: white;
+          &::after {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+/*End Features*/

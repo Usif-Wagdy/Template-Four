@@ -1,0 +1,59 @@
+@use "./mixins" as *;
+@use "./variables" as *;
+/*Start Gallery*/
+.gallery {
+  padding-top: $section_gap;
+  padding-bottom: $section_gap;
+  background-color: $section_background;
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: $content_gap * 1.35;
+    .box {
+      background-color: white;
+      padding: $screen_padding * 0.75;
+      box-shadow: 0px 12px 20px 0px rgb(0 0 0 / 13%),
+        0px 2px 4px 0px rgb(0 0 0 / 12%);
+      .image {
+        overflow: hidden;
+        position: relative;
+        img {
+          max-width: 100%;
+          transition: $main_transition;
+        }
+        &::before {
+          content: "";
+          background-color: rgb(255 255 255 / 20%);
+          width: 0;
+          height: 0;
+          opacity: 0;
+          position: absolute;
+          z-index: 10;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+        &:hover {
+          img {
+            transform: rotate(5deg) scale(1.1);
+          }
+          &::before {
+            animation: flashing 0.7s;
+          }
+        }
+      }
+    }
+  }
+}
+@keyframes flashing {
+  0%,
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    width: 200%;
+    height: 200%;
+  }
+}
+/*End Gallery*/

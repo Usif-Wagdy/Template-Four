@@ -21,12 +21,12 @@
     .text {
       flex: 1;
       h1 {
-        @include text("heading", $font_size * 2) {
+        @include text("heading", $font_size * 2, null, 1) {
           letter-spacing: -2px;
         }
       }
       p {
-        @include text("normal", $font_size * 1.15, #666) {
+        @include text("normal", $font_size * 1.15, #666, 1) {
           max-width: 500px;
         }
       }
