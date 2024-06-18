@@ -1,0 +1,96 @@
+@use "./mixins" as *;
+@use "./variables" as *;
+/*Start Discount*/
+.discount {
+  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  .image {
+    background-image: url(../imgs/discount-background1.jpg);
+    background-size: cover;
+    flex-basis: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    animation: change-background 10s linear infinite;
+    .content {
+      text-align: center;
+      padding: 0 $screen_padding;
+      img {
+        width: 300px;
+        max-width: 100%;
+      }
+      h2 {
+        text-transform: capitalize;
+        font-size: $font_size * 2;
+        letter-spacing: -2px;
+      }
+      p {
+        @include text("normal", $font_size * 0.9, inherit);
+        max-width: 500px;
+        margin-bottom: 18px;
+      }
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: $alt_main_color;
+      opacity: 0.97;
+      z-index: -1;
+    }
+  }
+  .form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 50%;
+    padding-bottom: $section_gap * 0.5;
+    .content {
+      text-align: center;
+      padding: 0 $screen_padding;
+      h2 {
+        font-size: $font_size * 2;
+        text-transform: capitalize;
+        letter-spacing: -2px;
+      }
+      input:not([type="submit"]),
+      textarea {
+        display: block;
+        width: 100%;
+        padding: $text_gap * 1.5;
+        margin-bottom: $content_gap * 0.8;
+        border: none;
+        outline: none;
+        caret-color: $main_color;
+        background-color: #f9f9f9;
+        border-bottom: 1px solid #ccc;
+      }
+      textarea {
+        resize: none;
+        height: 200px;
+      }
+      input[type="submit"] {
+        width: 100%;
+        border: none;
+        background-color: $main_color;
+        cursor: pointer;
+        color: white;
+        text-transform: capitalize;
+        font-weight: bold;
+        font-size: $font_size;
+        padding: $text_gap * 1.5;
+      }
+    }
+  }
+  @media (max-width: 991px) {
+    flex-direction: column;
+  }
+}
+/*End Discount*/

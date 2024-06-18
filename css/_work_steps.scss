@@ -48,6 +48,7 @@
         @include break_point("mobile") {
           flex-direction: column;
           text-align: center;
+          padding: 30px 0;
         }
         &::before {
           content: "";

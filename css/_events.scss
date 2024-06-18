@@ -1,0 +1,131 @@
+@use "./mixins" as *;
+@use "./variables" as *;
+/* Start Events */
+.events {
+  padding-top: $section_gap;
+  padding-bottom: $section_gap;
+  position: relative;
+  .container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    .image {
+      max-width: 450px;
+      img {
+        width: 100%;
+      }
+    }
+    .info {
+      flex: 1;
+      text-align: center;
+      h2 {
+        @include text("heading", $font_size * 1.5, null, 1);
+        margin-bottom: $content_gap * 0.7;
+      }
+      p {
+        @include text("normal", $font_size * 0.95, null, 1);
+      }
+      .time {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: $text_gap;
+        margin-bottom: $content_gap;
+        .unit {
+          border: 1px solid #d4d4d4;
+          border-radius: 6px;
+          width: 75px;
+          transition: $main_transition;
+          overflow: hidden;
+          span {
+            display: block;
+            transition: $main_transition;
+          }
+          span:first-child {
+            color: $main_color;
+            font-weight: bold;
+            font-size: $font_size * 1.75;
+            padding: $screen_padding * 0.5;
+          }
+          span:last-child {
+            padding: 8px 10px;
+            font-size: $font_size * 0.7;
+            text-transform: capitalize;
+            border-top: 1px solid #d4d4d4;
+          }
+          &:hover {
+            border-color: $main_color;
+            span:last-child {
+              border-color: $main_color;
+            }
+          }
+        }
+        @include break_point("mobile") {
+          .unit {
+            width: 65px;
+            span:first-child {
+              font-size: $font_size * 1.4;
+            }
+          }
+        }
+      }
+    }
+    .subscribe {
+      width: 100%;
+      margin-top: $section_gap * 0.5;
+      form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: $content_gap;
+        background-color: #f5f5f5;
+        max-width: 600px;
+        margin: auto;
+        padding: 30px 40px;
+        border-radius: 50px;
+        input[type="email"] {
+          border: none;
+          outline: none;
+          flex: 1;
+          caret-color: $main_color;
+          padding: $screen_padding;
+          border-radius: 50px;
+          &::placeholder {
+            transition: color $main_transition;
+          }
+          &:focus::placeholder {
+            color: white;
+          }
+        }
+        input[type="submit"] {
+          border: none;
+          padding: $screen_padding;
+          border-radius: 50px;
+          background-color: $main_color;
+          transition: background-color $main_transition;
+          color: white;
+          font-weight: bold;
+          cursor: pointer;
+          &:hover {
+            background-color: $alt_main_color;
+          }
+        }
+        @include break_point("mobile") {
+          gap: 10px;
+          padding: 0;
+          justify-content: flex-end;
+          background-color: transparent;
+          input[type="email"] {
+            background-color: #f5f5f5;
+          }
+          input[type="submit"] {
+            font-size: $font_size * 0.7;
+          }
+        }
+      }
+    }
+  }
+}
+/* End Events */

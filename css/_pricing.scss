@@ -1,0 +1,148 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+/*Start Pricing plans*/
+.pricing {
+  padding-top: $section-gap;
+  padding-bottom: $section-gap;
+  background-color: $section-background;
+  position: relative;
+  .dots {
+    z-index: 1;
+  }
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $content_gap;
+    justify-content: space-around;
+    position: relative;
+    z-index: 2;
+    .box {
+      background-color: white;
+      box-shadow: 0 12px 20px 0 rgb(0 0 0 / 13%), 0 2px 4px 0 rgb(0 0 0 / 12%);
+      min-width: calc((100% - $content_gap * 2) / 3);
+      text-align: center;
+      position: relative;
+      z-index: 3;
+      .title {
+        @include text("heading", $font_size * 1.25);
+        margin-top: $content_gap;
+        letter-spacing: -1px;
+      }
+      img {
+        width: 80px;
+        margin: $content_gap 0;
+      }
+      .price {
+        margin-bottom: $content_gap;
+        .amount {
+          display: block;
+          font-size: $font_size * 3;
+          font-weight: bold;
+          margin-bottom: 5px;
+          color: $main_color;
+        }
+        .time {
+          color: $p_color;
+          text-transform: capitalize;
+        }
+      }
+      ul {
+        text-align: left;
+        li {
+          padding: $screen_padding;
+          border-top: 1px solid #eee;
+          &::before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: bold;
+            color: $main_color;
+            margin-right: $text_gap;
+          }
+        }
+      }
+      a {
+        display: block;
+        width: fit-content;
+        margin: $content_gap auto;
+        padding: 15px 20px;
+        border: 2px solid $main_color;
+        border-radius: 6px;
+        color: $main_color;
+        font-weight: bold;
+        text-transform: capitalize;
+        transition: $main_transition;
+        &:hover {
+          background-color: $main_color;
+          color: white;
+        }
+      }
+      &:nth-child(2) {
+        transform: translateY(-20px);
+        position: relative;
+        .label {
+          content: "";
+          background-color: $main_color;
+          writing-mode: vertical-lr;
+          position: absolute;
+          top: 0;
+          right: 20px;
+          color: white;
+          font-weight: bold;
+          font-size: $font_size * 0.9;
+          padding: 10px {
+            bottom: $content_gap;
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            border: 20px solid transparent;
+            border-bottom-color: white;
+          }
+        }
+      }
+      &::before,
+      &::after {
+        content: "";
+        background-color: #f6f6f6;
+        width: 0;
+        height: 50%;
+        position: absolute;
+        z-index: -1;
+        transition: $main_transition;
+      }
+      &::before {
+        left: 0;
+        top: 0;
+      }
+      &::after {
+        right: 0;
+        bottom: 0;
+      }
+      &:hover {
+        &::before,
+        &::after {
+          width: 100%;
+        }
+      }
+      @media (min-width: 768px) and (max-width: 991px) {
+        &:nth-child(2) {
+          .label {
+            right: 5px;
+          }
+        }
+      }
+      @media (max-width: 767px) {
+        min-width: calc((100% - $content_gap * 2) / 2);
+        &:nth-child(2) {
+          transform: translateY(0);
+        }
+      }
+      @media (max-width: 600px) {
+        min-width: 280px;
+      }
+    }
+  }
+}
+/*End Pricing plans*/
